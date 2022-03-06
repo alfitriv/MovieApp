@@ -9,6 +9,9 @@ import UIKit
 
 class ResultsViewController: UIViewController {
     private let movieService: MovieService
+    @IBOutlet weak var tableView: UITableView!
+    var movieList: [Result]?
+    
     
     init(movieService: MovieService) {
             self.movieService = movieService
@@ -21,24 +24,33 @@ class ResultsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.register(UINib(nibName: "ResultsTableViewCell", bundle: nil), forCellReuseIdentifier: "results")
 
-        self.movieService.fetchResults(searchText: "Adam") { results in
-            print(results)
+        self.movieService.fetchResults(searchText: "Adam") { response in
+            print(response)
+            self.movieList = response.results
+            self.tableView.reloadData()
         } errorHandler: { error in
             print(error)
         }
 
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+extension ResultsViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return movieList?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "results", for: indexPath) as? ResultsTableViewCell
+        let movie = movieList?[indexPath.row] ?? Result(artistName: "", trackName: "", collectionName: "", artworkUrl60: "", trackPrice: 0.0, longDescription: "", primaryGenreName: "")
+        cell?.setUpCell(data: movie)
+        return cell ?? UITableViewCell()
+    }
+    
+    
+}
+

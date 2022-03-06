@@ -13,6 +13,8 @@
 		214C6D7527D51D1700EDB959 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 214C6D7327D51D1700EDB959 /* HomeViewController.xib */; };
 		214C6D7827D51F7900EDB959 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214C6D7627D51F7900EDB959 /* FavoritesViewController.swift */; };
 		214C6D7927D51F7900EDB959 /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 214C6D7727D51F7900EDB959 /* FavoritesViewController.xib */; };
+		214C6D7E27D5299D00EDB959 /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214C6D7C27D5299D00EDB959 /* ResultsTableViewCell.swift */; };
+		214C6D7F27D5299D00EDB959 /* ResultsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 214C6D7D27D5299D00EDB959 /* ResultsTableViewCell.xib */; };
 		21A9BF5D27D50EE400237106 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A9BF5C27D50EE400237106 /* AppDelegate.swift */; };
 		21A9BF5F27D50EE400237106 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A9BF5E27D50EE400237106 /* SceneDelegate.swift */; };
 		21A9BF6627D50EE700237106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21A9BF6527D50EE700237106 /* Assets.xcassets */; };
@@ -29,6 +31,8 @@
 		214C6D7327D51D1700EDB959 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		214C6D7627D51F7900EDB959 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		214C6D7727D51F7900EDB959 /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
+		214C6D7C27D5299D00EDB959 /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
+		214C6D7D27D5299D00EDB959 /* ResultsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultsTableViewCell.xib; sourceTree = "<group>"; };
 		21A9BF5927D50EE400237106 /* iTunesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A9BF5C27D50EE400237106 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21A9BF5E27D50EE400237106 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 				214C6D7327D51D1700EDB959 /* HomeViewController.xib */,
 				214C6D7627D51F7900EDB959 /* FavoritesViewController.swift */,
 				214C6D7727D51F7900EDB959 /* FavoritesViewController.xib */,
+				214C6D7C27D5299D00EDB959 /* ResultsTableViewCell.swift */,
+				214C6D7D27D5299D00EDB959 /* ResultsTableViewCell.xib */,
 			);
 			path = iTunesApp;
 			sourceTree = "<group>";
@@ -148,6 +154,7 @@
 			files = (
 				214C6D7127D5162B00EDB959 /* ResultsViewController.xib in Resources */,
 				21A9BF6927D50EE700237106 /* LaunchScreen.storyboard in Resources */,
+				214C6D7F27D5299D00EDB959 /* ResultsTableViewCell.xib in Resources */,
 				21A9BF6627D50EE700237106 /* Assets.xcassets in Resources */,
 				214C6D7927D51F7900EDB959 /* FavoritesViewController.xib in Resources */,
 				214C6D7527D51D1700EDB959 /* HomeViewController.xib in Resources */,
@@ -163,6 +170,7 @@
 			files = (
 				21A9BF7727D513A600237106 /* Results.swift in Sources */,
 				21A9BF5D27D50EE400237106 /* AppDelegate.swift in Sources */,
+				214C6D7E27D5299D00EDB959 /* ResultsTableViewCell.swift in Sources */,
 				214C6D7827D51F7900EDB959 /* FavoritesViewController.swift in Sources */,
 				21A9BF7327D50FB000237106 /* Result.swift in Sources */,
 				21A9BF7527D511C200237106 /* NetworkLayer.swift in Sources */,
