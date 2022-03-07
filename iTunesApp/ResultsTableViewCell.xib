@@ -70,6 +70,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="avatarImageView" destination="pvg-HU-YSm" id="7mf-aF-6kC"/>
+                <outlet property="favoriteIcon" destination="MY5-CH-0gh" id="l3C-IR-ujW"/>
                 <outlet property="genreType" destination="6PB-Ns-h3N" id="aBK-VX-iYg"/>
                 <outlet property="trackName" destination="s0z-XY-7zI" id="IIl-x8-LkJ"/>
             </connections>

@@ -9,6 +9,7 @@ import UIKit
 
 class HomeViewController: UITabBarController {
     let movieService = NetworkLayer.shared
+    var favoriteVC: FavoritesViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,9 +21,14 @@ class HomeViewController: UITabBarController {
     }
     
     func setupVCs() {
+        let resultVC = ResultsViewController(movieService: movieService)
+        resultVC.delegate = self
+        
+        let favoriteVC = FavoritesViewController()
+        self.favoriteVC = favoriteVC
         viewControllers = [
-            createNavController(for: ResultsViewController(movieService: movieService), title: "List", image: UIImage(systemName: "magnifyingglass")!),
-            createNavController(for: FavoritesViewController(), title: "Favorites", image: UIImage(systemName: "heart")!)
+            createNavController(for: resultVC, title: "List", image: UIImage(systemName: "magnifyingglass")!),
+            createNavController(for: favoriteVC, title: "Favorites", image: UIImage(systemName: "heart")!)
         ]
     }
     
@@ -38,3 +44,12 @@ class HomeViewController: UITabBarController {
     }
     
 }
+
+extension HomeViewController: ResultsViewControllerDelegate {
+    func movieDidSetAsFavorite(movie: Result) {
+        favoriteVC?.movieList?.append(movie)
+    }
+    
+    
+}
+

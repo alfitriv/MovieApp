@@ -7,10 +7,15 @@
 
 import UIKit
 
+protocol ResultsViewControllerDelegate: AnyObject {
+    func movieDidSetAsFavorite(movie: Result)
+}
+
 class ResultsViewController: UIViewController {
     private let movieService: MovieService
     @IBOutlet weak var tableView: UITableView!
     var movieList: [Result]?
+    weak var delegate: ResultsViewControllerDelegate?
     
     
     init(movieService: MovieService) {
@@ -48,7 +53,14 @@ extension ResultsViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "results", for: indexPath) as? ResultsTableViewCell
         let movie = movieList?[indexPath.row] ?? Result(artistName: "", trackName: "", collectionName: "", artworkUrl60: "", trackPrice: 0.0, longDescription: "", primaryGenreName: "")
         cell?.setUpCell(data: movie)
+        cell?.delegate = self
         return cell ?? UITableViewCell()
+    }
+}
+
+extension ResultsViewController: ResultsTableViewCellDelegate {
+    func movieDidSetAsFavorite(movie: Result) {
+        delegate?.movieDidSetAsFavorite(movie: movie)
     }
     
     
