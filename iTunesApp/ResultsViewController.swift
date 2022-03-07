@@ -17,11 +17,12 @@ class ResultsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var movieList: [Result]?
     weak var delegate: ResultsViewControllerDelegate?
+    let searchController = UISearchController(searchResultsController: nil)
     
     
     init(movieService: MovieService) {
-            self.movieService = movieService
-            super.init(nibName: nil, bundle: nil)
+        self.movieService = movieService
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -30,9 +31,14 @@ class ResultsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Music"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
         
         tableView.register(UINib(nibName: "ResultsTableViewCell", bundle: nil), forCellReuseIdentifier: "results")
-
+        
         self.movieService.fetchResults(searchText: "Adam") { response in
             print(response)
             self.movieList = response.results
@@ -40,9 +46,9 @@ class ResultsViewController: UIViewController {
         } errorHandler: { error in
             print(error)
         }
-
+        
     }
-
+    
 }
 
 extension ResultsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -67,7 +73,26 @@ extension ResultsViewController: ResultsTableViewCellDelegate {
     func movieDidSetAsFavorite(movie: Result) {
         delegate?.movieDidSetAsFavorite(movie: movie)
     }
+
+}
+
+extension ResultsViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchKeywordStr = replaceSpace(searchController.searchBar.text!)
+        if searchController.searchBar.text?.count ?? 0 > 3 {
+            self.movieService.fetchResults(searchText: searchKeywordStr) { response in
+                print(response)
+                self.movieList = response.results
+                self.tableView.reloadData()
+            } errorHandler: { error in
+                print(error)
+            }
+        }
+    }
     
-    
+    private func replaceSpace(_ inputStr: String) -> String {
+            let outputStr = inputStr.replacingOccurrences(of: " ", with: "%20")
+            return outputStr
+        }
 }
 
