@@ -39,6 +39,7 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "results", for: indexPath) as? ResultsTableViewCell
         let data = movieList?[indexPath.row] ?? Result(artistName: nil, trackName: nil, collectionName: nil, artworkUrl60: nil, trackPrice: nil, longDescription: nil, primaryGenreName: nil)
+        cell?.isForFavoriteScreen = true
         cell?.setUpCell(data: data)
         return cell ?? UITableViewCell()
     }

@@ -9,6 +9,7 @@ import UIKit
 
 protocol ResultsViewControllerDelegate: AnyObject {
     func movieDidSetAsFavorite(movie: Result)
+    func removeFromFavorite(movie: Result)
 }
 
 class ResultsViewController: UIViewController {
@@ -59,6 +60,10 @@ extension ResultsViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension ResultsViewController: ResultsTableViewCellDelegate {
+    func removeFromFavorite(movie: Result) {
+        delegate?.removeFromFavorite(movie: movie)
+    }
+    
     func movieDidSetAsFavorite(movie: Result) {
         delegate?.movieDidSetAsFavorite(movie: movie)
     }

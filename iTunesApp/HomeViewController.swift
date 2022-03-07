@@ -50,6 +50,11 @@ extension HomeViewController: ResultsViewControllerDelegate {
         favoriteVC?.movieList?.append(movie)
     }
     
+    func removeFromFavorite(movie: Result) {
+        let currentList = favoriteVC?.movieList
+        let indexToRemove = currentList?.firstIndex(where: { $0.trackName == movie.trackName }) ?? 0
+        favoriteVC?.movieList?.remove(at: indexToRemove)
+    }
     
 }
 

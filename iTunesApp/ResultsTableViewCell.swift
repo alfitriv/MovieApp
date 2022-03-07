@@ -10,6 +10,7 @@ import Kingfisher
 
 protocol ResultsTableViewCellDelegate: AnyObject {
     func movieDidSetAsFavorite(movie: Result)
+    func removeFromFavorite(movie: Result)
 }
 
 class ResultsTableViewCell: UITableViewCell {
@@ -19,7 +20,13 @@ class ResultsTableViewCell: UITableViewCell {
     @IBOutlet weak var favoriteIcon: UIImageView!
     weak var delegate: ResultsTableViewCellDelegate?
     var movie: Result?
+    var isFavorite: Bool = false
+    var isForFavoriteScreen: Bool?
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+    }
     
     func setUpCell(data: Result) {
         self.movie = data
@@ -31,12 +38,28 @@ class ResultsTableViewCell: UITableViewCell {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         favoriteIcon.isUserInteractionEnabled = true
         favoriteIcon.addGestureRecognizer(tapGestureRecognizer)
+        
+        if isForFavoriteScreen == true {
+            favoriteIcon.isHidden = true
+        }
+        
+        
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        setUpFavoriteIcon()
         
-        delegate?.movieDidSetAsFavorite(movie: movie ?? Result(artistName: nil, trackName: nil, collectionName: nil, artworkUrl60: nil, trackPrice: nil, longDescription: nil, primaryGenreName: nil))
+    }
+    
+    func setUpFavoriteIcon() {
+        isFavorite = !isFavorite
+        if isFavorite {
+            favoriteIcon.image = UIImage(systemName: "heart.fill")
+            delegate?.movieDidSetAsFavorite(movie: movie ?? Result(artistName: nil, trackName: nil, collectionName: nil, artworkUrl60: nil, trackPrice: nil, longDescription: nil, primaryGenreName: nil))
+        } else {
+            favoriteIcon.image = UIImage(systemName: "heart")
+            delegate?.removeFromFavorite(movie: movie ?? Result(artistName: nil, trackName: nil, collectionName: nil, artworkUrl60: nil, trackPrice: nil, longDescription: nil, primaryGenreName: nil))
+        }
     }
     
     
