@@ -25,6 +25,8 @@
 		214F6A9927D704B0000AE544 /* DateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214F6A9727D704AF000AE544 /* DateTableViewCell.swift */; };
 		214F6A9A27D704B0000AE544 /* DateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 214F6A9827D704AF000AE544 /* DateTableViewCell.xib */; };
 		214F6A9C27D7A89D000AE544 /* ResultsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214F6A9B27D7A89D000AE544 /* ResultsPresenter.swift */; };
+		214F6AB227D7BE79000AE544 /* MockMovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214F6AB127D7BE79000AE544 /* MockMovieService.swift */; };
+		214F6AB427D7BF3E000AE544 /* ResultsPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214F6AB327D7BF3E000AE544 /* ResultsPresenterTest.swift */; };
 		21A9BF5D27D50EE400237106 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A9BF5C27D50EE400237106 /* AppDelegate.swift */; };
 		21A9BF5F27D50EE400237106 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A9BF5E27D50EE400237106 /* SceneDelegate.swift */; };
 		21A9BF6627D50EE700237106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21A9BF6527D50EE700237106 /* Assets.xcassets */; };
@@ -33,6 +35,16 @@
 		21A9BF7527D511C200237106 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A9BF7427D511C200237106 /* NetworkLayer.swift */; };
 		21A9BF7727D513A600237106 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A9BF7627D513A600237106 /* Results.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		214F6AAC27D7BE2A000AE544 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21A9BF5127D50EE400237106 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21A9BF5827D50EE400237106;
+			remoteInfo = iTunesApp;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		214C6D6E27D5162B00EDB959 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +64,9 @@
 		214F6A9727D704AF000AE544 /* DateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTableViewCell.swift; sourceTree = "<group>"; };
 		214F6A9827D704AF000AE544 /* DateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateTableViewCell.xib; sourceTree = "<group>"; };
 		214F6A9B27D7A89D000AE544 /* ResultsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsPresenter.swift; sourceTree = "<group>"; };
+		214F6AA827D7BE2A000AE544 /* iTunesAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iTunesAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		214F6AB127D7BE79000AE544 /* MockMovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMovieService.swift; sourceTree = "<group>"; };
+		214F6AB327D7BF3E000AE544 /* ResultsPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsPresenterTest.swift; sourceTree = "<group>"; };
 		21A9BF5927D50EE400237106 /* iTunesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A9BF5C27D50EE400237106 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21A9BF5E27D50EE400237106 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +79,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		214F6AA527D7BE2A000AE544 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		21A9BF5627D50EE400237106 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -147,10 +169,20 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		214F6AA927D7BE2A000AE544 /* iTunesAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				214F6AB127D7BE79000AE544 /* MockMovieService.swift */,
+				214F6AB327D7BF3E000AE544 /* ResultsPresenterTest.swift */,
+			);
+			path = iTunesAppTests;
+			sourceTree = "<group>";
+		};
 		21A9BF5027D50EE400237106 = {
 			isa = PBXGroup;
 			children = (
 				21A9BF5B27D50EE400237106 /* iTunesApp */,
+				214F6AA927D7BE2A000AE544 /* iTunesAppTests */,
 				21A9BF5A27D50EE400237106 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -159,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				21A9BF5927D50EE400237106 /* iTunesApp.app */,
+				214F6AA827D7BE2A000AE544 /* iTunesAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -182,6 +215,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		214F6AA727D7BE2A000AE544 /* iTunesAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 214F6AAE27D7BE2A000AE544 /* Build configuration list for PBXNativeTarget "iTunesAppTests" */;
+			buildPhases = (
+				214F6AA427D7BE2A000AE544 /* Sources */,
+				214F6AA527D7BE2A000AE544 /* Frameworks */,
+				214F6AA627D7BE2A000AE544 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				214F6AAD27D7BE2A000AE544 /* PBXTargetDependency */,
+			);
+			name = iTunesAppTests;
+			productName = iTunesAppTests;
+			productReference = 214F6AA827D7BE2A000AE544 /* iTunesAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		21A9BF5827D50EE400237106 /* iTunesApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21A9BF6D27D50EE700237106 /* Build configuration list for PBXNativeTarget "iTunesApp" */;
@@ -212,6 +263,10 @@
 				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1310;
 				TargetAttributes = {
+					214F6AA727D7BE2A000AE544 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 21A9BF5827D50EE400237106;
+					};
 					21A9BF5827D50EE400237106 = {
 						CreatedOnToolsVersion = 13.1;
 					};
@@ -234,11 +289,19 @@
 			projectRoot = "";
 			targets = (
 				21A9BF5827D50EE400237106 /* iTunesApp */,
+				214F6AA727D7BE2A000AE544 /* iTunesAppTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		214F6AA627D7BE2A000AE544 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		21A9BF5727D50EE400237106 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -259,6 +322,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		214F6AA427D7BE2A000AE544 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				214F6AB227D7BE79000AE544 /* MockMovieService.swift in Sources */,
+				214F6AB427D7BF3E000AE544 /* ResultsPresenterTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		21A9BF5527D50EE400237106 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -282,6 +354,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		214F6AAD27D7BE2A000AE544 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21A9BF5827D50EE400237106 /* iTunesApp */;
+			targetProxy = 214F6AAC27D7BE2A000AE544 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		21A9BF6727D50EE700237106 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -294,6 +374,52 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		214F6AAF27D7BE2A000AE544 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D6ZFFGJQCK;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = vania.alfitri.iTunesAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iTunesApp.app/iTunesApp";
+			};
+			name = Debug;
+		};
+		214F6AB027D7BE2A000AE544 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D6ZFFGJQCK;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = vania.alfitri.iTunesAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iTunesApp.app/iTunesApp";
+			};
+			name = Release;
+		};
 		21A9BF6B27D50EE700237106 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -467,6 +593,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		214F6AAE27D7BE2A000AE544 /* Build configuration list for PBXNativeTarget "iTunesAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				214F6AAF27D7BE2A000AE544 /* Debug */,
+				214F6AB027D7BE2A000AE544 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		21A9BF5427D50EE400237106 /* Build configuration list for PBXProject "iTunesApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
