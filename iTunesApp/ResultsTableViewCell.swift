@@ -18,6 +18,8 @@ class ResultsTableViewCell: UITableViewCell {
     @IBOutlet weak var genreType: UILabel!
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var favoriteIcon: UIImageView!
+    @IBOutlet weak var priceLabel: UILabel!
+    
     weak var delegate: ResultsTableViewCellDelegate?
     var movie: Result?
     var isFavorite: Bool = false
@@ -34,7 +36,7 @@ class ResultsTableViewCell: UITableViewCell {
         avatarImageView.kf.setImage(with: url)
         trackName.text = data.trackName
         genreType.text = data.primaryGenreName
-        
+        priceLabel.text = data.trackPrice?.description
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         favoriteIcon.isUserInteractionEnabled = true
         favoriteIcon.addGestureRecognizer(tapGestureRecognizer)

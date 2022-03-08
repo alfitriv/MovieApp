@@ -12,6 +12,7 @@ struct Result: Codable {
     var trackName: String?
     var collectionName: String?
     var artworkUrl60: String?
+    var artworkUrl100: String?
     var trackPrice: Double?
     var longDescription: String?
     var primaryGenreName: String?
@@ -21,6 +22,7 @@ struct Result: Codable {
         case trackName
         case collectionName
         case artworkUrl60
+        case artworkUrl100
         case trackPrice
         case longDescription
         case primaryGenreName

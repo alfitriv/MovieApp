@@ -63,6 +63,13 @@ extension ResultsViewController: UITableViewDelegate, UITableViewDataSource {
         cell?.delegate = self
         return cell ?? UITableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movie = movieList?[indexPath.row] ?? Result(artistName: "", trackName: "", collectionName: "", artworkUrl60: "", trackPrice: 0.0, longDescription: "", primaryGenreName: "")
+        let detailVC = DetailViewController()
+        detailVC.movie = movie
+        self.navigationController?.present(detailVC, animated: true, completion: nil)
+    }
 }
 
 extension ResultsViewController: ResultsTableViewCellDelegate {
