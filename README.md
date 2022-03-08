@@ -12,3 +12,6 @@ An iOS app that displays list of movies from iTunes API.
 
 # Installation and usage
 Launch Xcode and click the run button.
+
+# Demo
+https://user-images.githubusercontent.com/17697758/157181842-6b3e18e4-d163-4be8-936c-f99f94248087.mov
