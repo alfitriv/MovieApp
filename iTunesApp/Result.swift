@@ -16,6 +16,7 @@ struct Result: Codable, Equatable {
     var trackPrice: Double?
     var longDescription: String?
     var primaryGenreName: String?
+    let uuid = UUID().uuidString
     
     private enum CodingKeys: String, CodingKey {
         case artistName

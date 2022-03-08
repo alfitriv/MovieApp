@@ -47,10 +47,6 @@ class ResultsTableViewCell: UITableViewCell {
             favoriteIcon.isHidden = true
         }
         
-        if isFavorite == true && ((favoritedMovies?.filter { $0.trackName == data.trackName }) != nil) {
-            favoriteIcon.image = UIImage(systemName: "heart.fill")
-        }
-        
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {

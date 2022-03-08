@@ -93,12 +93,14 @@ extension ResultsViewController: UITableViewDelegate, UITableViewDataSource {
             let movie = movieList?[indexPath.row] ?? Result(artistName: "", trackName: "", collectionName: "", artworkUrl60: "", trackPrice: 0.0, longDescription: "", primaryGenreName: "")
             cell?.favoritedMovies = favoritedMovies
             cell?.setUpCell(data: movie)
-
-            if favoritedMovies?.first?.trackName == movie.trackName {
-                cell?.isFavorite = true
-                cell?.favoriteIcon.image = UIImage(systemName: "heart.fill")
-            }
             
+            for item in favoritedMovies ?? [Result(artistName: nil, trackName: nil, collectionName: nil, artworkUrl60: nil, artworkUrl100: nil, trackPrice: nil, longDescription: nil, primaryGenreName: nil)] {
+                if item.uuid == movie.uuid {
+                    cell?.isFavorite = true
+                    cell?.favoriteIcon.image = UIImage(systemName: "heart.fill")
+                }
+            }
+
             cell?.delegate = self
             return cell ?? UITableViewCell()
         case .none:
