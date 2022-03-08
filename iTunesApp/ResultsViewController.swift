@@ -21,6 +21,7 @@ class ResultsViewController: UIViewController {
     private let movieService: MovieService
     @IBOutlet weak var tableView: UITableView!
     var movieList: [Result]?
+    var favoritedMovies: [Result]?
     var sections: [ResultsSection]?
     weak var delegate: ResultsViewControllerDelegate?
     let searchController = UISearchController(searchResultsController: nil)
@@ -90,7 +91,14 @@ extension ResultsViewController: UITableViewDelegate, UITableViewDataSource {
         case .list:
             let cell = tableView.dequeueReusableCell(withIdentifier: "results", for: indexPath) as? ResultsTableViewCell
             let movie = movieList?[indexPath.row] ?? Result(artistName: "", trackName: "", collectionName: "", artworkUrl60: "", trackPrice: 0.0, longDescription: "", primaryGenreName: "")
+            cell?.favoritedMovies = favoritedMovies
             cell?.setUpCell(data: movie)
+
+            if favoritedMovies?.first?.trackName == movie.trackName {
+                cell?.isFavorite = true
+                cell?.favoriteIcon.image = UIImage(systemName: "heart.fill")
+            }
+            
             cell?.delegate = self
             return cell ?? UITableViewCell()
         case .none:

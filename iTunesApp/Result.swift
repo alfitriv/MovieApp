@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Result: Codable {
+struct Result: Codable, Equatable {
     var artistName: String?
     var trackName: String?
     var collectionName: String?
@@ -26,5 +26,9 @@ struct Result: Codable {
         case trackPrice
         case longDescription
         case primaryGenreName
+    }
+    
+    static func ==(lhs: Result, rhs: Result) -> Bool {
+        return lhs.trackName == rhs.trackName && lhs.artistName == rhs.artistName
     }
 }

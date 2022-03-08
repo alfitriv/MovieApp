@@ -11,6 +11,7 @@ class HomeViewController: UITabBarController {
     let movieService = NetworkLayer.shared
     let defaults = UserDefaults.standard
     var favoriteVC: FavoritesViewController?
+    var resultVC: ResultsViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ class HomeViewController: UITabBarController {
     func setupVCs() {
         let resultVC = ResultsViewController(movieService: movieService)
         resultVC.delegate = self
+        self.resultVC = resultVC
         
         let favoriteVC = FavoritesViewController()
         self.favoriteVC = favoriteVC
@@ -49,12 +51,14 @@ class HomeViewController: UITabBarController {
 extension HomeViewController: ResultsViewControllerDelegate {
     func movieDidSetAsFavorite(movie: Result) {
         favoriteVC?.movieList?.append(movie)
+        resultVC?.favoritedMovies = favoriteVC?.movieList
     }
     
     func removeFromFavorite(movie: Result) {
         let currentList = favoriteVC?.movieList
         let indexToRemove = currentList?.firstIndex(where: { $0.trackName == movie.trackName }) ?? 0
         favoriteVC?.movieList?.remove(at: indexToRemove)
+        resultVC?.favoritedMovies = favoriteVC?.movieList
     }
     
 }

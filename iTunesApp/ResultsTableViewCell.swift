@@ -24,10 +24,12 @@ class ResultsTableViewCell: UITableViewCell {
     var movie: Result?
     var isFavorite: Bool = false
     var isForFavoriteScreen: Bool?
+    var favoritedMovies: [Result]?
     
     override func prepareForReuse() {
         super.prepareForReuse()
-
+        isFavorite = false
+        favoriteIcon.image = UIImage(systemName: "heart")
     }
     
     func setUpCell(data: Result) {
@@ -43,6 +45,10 @@ class ResultsTableViewCell: UITableViewCell {
         
         if isForFavoriteScreen == true {
             favoriteIcon.isHidden = true
+        }
+        
+        if isFavorite == true && ((favoritedMovies?.filter { $0.trackName == data.trackName }) != nil) {
+            favoriteIcon.image = UIImage(systemName: "heart.fill")
         }
         
     }
