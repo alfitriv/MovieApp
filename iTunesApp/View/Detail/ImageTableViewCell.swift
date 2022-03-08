@@ -12,11 +12,6 @@ class ImageTableViewCell: UITableViewCell {
     
     @IBOutlet weak var movieImageView: UIImageView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
     func setImage(data: Result) {
         let url = URL(string: data.artworkUrl100 ?? "")
         movieImageView.kf.setImage(with: url)

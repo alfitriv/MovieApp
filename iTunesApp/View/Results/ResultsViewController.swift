@@ -19,13 +19,13 @@ protocol ResultsViewControllerDelegate: AnyObject {
 }
 
 class ResultsViewController: UIViewController {
-    private let presenter: ResultsPresenterDelegate
-    @IBOutlet weak var tableView: UITableView!
     var movieList: [Result]?
     var favoritedMovies: [Result]?
     var sections: [ResultsSection]?
     weak var delegate: ResultsViewControllerDelegate?
+    @IBOutlet weak var tableView: UITableView!
     let searchController = UISearchController(searchResultsController: nil)
+    private let presenter: ResultsPresenterDelegate
     
     
     init(presenter: ResultsPresenterDelegate) {
@@ -39,7 +39,8 @@ class ResultsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchController.searchResultsUpdater = self
+        //searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Music"
         navigationItem.searchController = searchController
@@ -129,13 +130,11 @@ extension ResultsViewController: ResultsTableViewCellDelegate {
 
 }
 
-extension ResultsViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
+extension ResultsViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let searchKeywordStr = replaceSpace(searchController.searchBar.text!)
-        if searchController.searchBar.text?.count ?? 0 > 3 {
-            self.presenter.fetchMovieResults(keyword: searchKeywordStr)
-            self.tableView.reloadData()
-        }
+        self.presenter.fetchMovieResults(keyword: searchKeywordStr)
+        self.tableView.reloadData()
     }
     
     private func replaceSpace(_ inputStr: String) -> String {

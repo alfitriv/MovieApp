@@ -75,6 +75,78 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		214F6A9D27D7B6A9000AE544 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				21A9BF7227D50FB000237106 /* Result.swift */,
+				21A9BF7627D513A600237106 /* Results.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		214F6A9E27D7B6C4000AE544 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				214F6A9B27D7A89D000AE544 /* ResultsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		214F6A9F27D7B6D3000AE544 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				214F6AA327D7B75F000AE544 /* Home */,
+				214F6AA227D7B748000AE544 /* Detail */,
+				214F6AA127D7B717000AE544 /* Favorites */,
+				214F6AA027D7B707000AE544 /* Results */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		214F6AA027D7B707000AE544 /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				214C6D7C27D5299D00EDB959 /* ResultsTableViewCell.swift */,
+				214C6D7D27D5299D00EDB959 /* ResultsTableViewCell.xib */,
+				214C6D6E27D5162B00EDB959 /* ResultsViewController.swift */,
+				214C6D6F27D5162B00EDB959 /* ResultsViewController.xib */,
+			);
+			path = Results;
+			sourceTree = "<group>";
+		};
+		214F6AA127D7B717000AE544 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				214C6D7627D51F7900EDB959 /* FavoritesViewController.swift */,
+				214C6D7727D51F7900EDB959 /* FavoritesViewController.xib */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		214F6AA227D7B748000AE544 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				214F6A8B27D6DC60000AE544 /* DetailViewController.swift */,
+				214F6A8C27D6DC60000AE544 /* DetailViewController.xib */,
+				214F6A8F27D6EEF3000AE544 /* ImageTableViewCell.swift */,
+				214F6A9027D6EEF3000AE544 /* ImageTableViewCell.xib */,
+				214F6A9327D6EF7C000AE544 /* DescriptionTableViewCell.swift */,
+				214F6A9427D6EF7C000AE544 /* DescriptionTableViewCell.xib */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		214F6AA327D7B75F000AE544 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				214C6D7227D51D1700EDB959 /* HomeViewController.swift */,
+				214C6D7327D51D1700EDB959 /* HomeViewController.xib */,
+				214F6A9727D704AF000AE544 /* DateTableViewCell.swift */,
+				214F6A9827D704AF000AE544 /* DateTableViewCell.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		21A9BF5027D50EE400237106 = {
 			isa = PBXGroup;
 			children = (
@@ -94,31 +166,15 @@
 		21A9BF5B27D50EE400237106 /* iTunesApp */ = {
 			isa = PBXGroup;
 			children = (
+				214F6A9F27D7B6D3000AE544 /* View */,
+				214F6A9E27D7B6C4000AE544 /* Presenter */,
+				214F6A9D27D7B6A9000AE544 /* Model */,
 				21A9BF5C27D50EE400237106 /* AppDelegate.swift */,
 				21A9BF5E27D50EE400237106 /* SceneDelegate.swift */,
 				21A9BF6527D50EE700237106 /* Assets.xcassets */,
 				21A9BF6727D50EE700237106 /* LaunchScreen.storyboard */,
 				21A9BF6A27D50EE700237106 /* Info.plist */,
-				21A9BF7227D50FB000237106 /* Result.swift */,
 				21A9BF7427D511C200237106 /* NetworkLayer.swift */,
-				21A9BF7627D513A600237106 /* Results.swift */,
-				214C6D6E27D5162B00EDB959 /* ResultsViewController.swift */,
-				214C6D6F27D5162B00EDB959 /* ResultsViewController.xib */,
-				214C6D7227D51D1700EDB959 /* HomeViewController.swift */,
-				214C6D7327D51D1700EDB959 /* HomeViewController.xib */,
-				214C6D7627D51F7900EDB959 /* FavoritesViewController.swift */,
-				214C6D7727D51F7900EDB959 /* FavoritesViewController.xib */,
-				214C6D7C27D5299D00EDB959 /* ResultsTableViewCell.swift */,
-				214C6D7D27D5299D00EDB959 /* ResultsTableViewCell.xib */,
-				214F6A8B27D6DC60000AE544 /* DetailViewController.swift */,
-				214F6A8C27D6DC60000AE544 /* DetailViewController.xib */,
-				214F6A8F27D6EEF3000AE544 /* ImageTableViewCell.swift */,
-				214F6A9027D6EEF3000AE544 /* ImageTableViewCell.xib */,
-				214F6A9327D6EF7C000AE544 /* DescriptionTableViewCell.swift */,
-				214F6A9427D6EF7C000AE544 /* DescriptionTableViewCell.xib */,
-				214F6A9727D704AF000AE544 /* DateTableViewCell.swift */,
-				214F6A9827D704AF000AE544 /* DateTableViewCell.xib */,
-				214F6A9B27D7A89D000AE544 /* ResultsPresenter.swift */,
 			);
 			path = iTunesApp;
 			sourceTree = "<group>";
