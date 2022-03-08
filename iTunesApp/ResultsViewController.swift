@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum ResultsSection {
+    case date
+    case list
+}
+
 protocol ResultsViewControllerDelegate: AnyObject {
     func movieDidSetAsFavorite(movie: Result)
     func removeFromFavorite(movie: Result)
@@ -16,9 +21,9 @@ class ResultsViewController: UIViewController {
     private let movieService: MovieService
     @IBOutlet weak var tableView: UITableView!
     var movieList: [Result]?
+    var sections: [ResultsSection]?
     weak var delegate: ResultsViewControllerDelegate?
     let searchController = UISearchController(searchResultsController: nil)
-    
     
     init(movieService: MovieService) {
         self.movieService = movieService
@@ -38,6 +43,8 @@ class ResultsViewController: UIViewController {
         definesPresentationContext = true
         
         tableView.register(UINib(nibName: "ResultsTableViewCell", bundle: nil), forCellReuseIdentifier: "results")
+        tableView.register(UINib(nibName: "DateTableViewCell", bundle: nil), forCellReuseIdentifier: "date")
+        sections = [ResultsSection.date, ResultsSection.list]
         
         self.movieService.fetchResults(searchText: "Adam") { response in
             print(response)
@@ -52,16 +59,44 @@ class ResultsViewController: UIViewController {
 }
 
 extension ResultsViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        sections?.count ?? 0
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movieList?.count ?? 0
+        let section = sections?[section]
+        switch section {
+        case .date:
+            return 1
+        case .list:
+            return movieList?.count ?? 0
+        case .none:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "results", for: indexPath) as? ResultsTableViewCell
-        let movie = movieList?[indexPath.row] ?? Result(artistName: "", trackName: "", collectionName: "", artworkUrl60: "", trackPrice: 0.0, longDescription: "", primaryGenreName: "")
-        cell?.setUpCell(data: movie)
-        cell?.delegate = self
-        return cell ?? UITableViewCell()
+        let section = sections?[indexPath.section]
+        
+        switch section {
+        case .date:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "date", for: indexPath) as? DateTableViewCell
+            if UserDefaults.standard.string(forKey: "lastVisited") != nil {
+                cell?.dateLabel.text = UserDefaults.standard.string(forKey: "lastVisited")
+            } else {
+                cell?.setupDate()
+            }
+            return cell ?? DateTableViewCell()
+        case .list:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "results", for: indexPath) as? ResultsTableViewCell
+            let movie = movieList?[indexPath.row] ?? Result(artistName: "", trackName: "", collectionName: "", artworkUrl60: "", trackPrice: 0.0, longDescription: "", primaryGenreName: "")
+            cell?.setUpCell(data: movie)
+            cell?.delegate = self
+            return cell ?? UITableViewCell()
+        case .none:
+            return UITableViewCell()
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

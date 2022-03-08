@@ -36,7 +36,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Ms0-sb-HLB" secondAttribute="bottom" id="khl-Yo-1x3"/>
                 <constraint firstItem="Ms0-sb-HLB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="vWw-Mo-6w1"/>
             </constraints>
-            <point key="canvasLocation" x="-93" y="12"/>
+            <point key="canvasLocation" x="-94.20289855072464" y="11.383928571428571"/>
         </view>
     </objects>
     <resources>

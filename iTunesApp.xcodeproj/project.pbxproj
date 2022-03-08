@@ -22,6 +22,8 @@
 		214F6A9227D6EEF3000AE544 /* ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 214F6A9027D6EEF3000AE544 /* ImageTableViewCell.xib */; };
 		214F6A9527D6EF7C000AE544 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214F6A9327D6EF7C000AE544 /* DescriptionTableViewCell.swift */; };
 		214F6A9627D6EF7C000AE544 /* DescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 214F6A9427D6EF7C000AE544 /* DescriptionTableViewCell.xib */; };
+		214F6A9927D704B0000AE544 /* DateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214F6A9727D704AF000AE544 /* DateTableViewCell.swift */; };
+		214F6A9A27D704B0000AE544 /* DateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 214F6A9827D704AF000AE544 /* DateTableViewCell.xib */; };
 		21A9BF5D27D50EE400237106 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A9BF5C27D50EE400237106 /* AppDelegate.swift */; };
 		21A9BF5F27D50EE400237106 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A9BF5E27D50EE400237106 /* SceneDelegate.swift */; };
 		21A9BF6627D50EE700237106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21A9BF6527D50EE700237106 /* Assets.xcassets */; };
@@ -46,6 +48,8 @@
 		214F6A9027D6EEF3000AE544 /* ImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTableViewCell.xib; sourceTree = "<group>"; };
 		214F6A9327D6EF7C000AE544 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		214F6A9427D6EF7C000AE544 /* DescriptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionTableViewCell.xib; sourceTree = "<group>"; };
+		214F6A9727D704AF000AE544 /* DateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTableViewCell.swift; sourceTree = "<group>"; };
+		214F6A9827D704AF000AE544 /* DateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateTableViewCell.xib; sourceTree = "<group>"; };
 		21A9BF5927D50EE400237106 /* iTunesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A9BF5C27D50EE400237106 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21A9BF5E27D50EE400237106 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +114,8 @@
 				214F6A9027D6EEF3000AE544 /* ImageTableViewCell.xib */,
 				214F6A9327D6EF7C000AE544 /* DescriptionTableViewCell.swift */,
 				214F6A9427D6EF7C000AE544 /* DescriptionTableViewCell.xib */,
+				214F6A9727D704AF000AE544 /* DateTableViewCell.swift */,
+				214F6A9827D704AF000AE544 /* DateTableViewCell.xib */,
 			);
 			path = iTunesApp;
 			sourceTree = "<group>";
@@ -183,6 +189,7 @@
 				214F6A9627D6EF7C000AE544 /* DescriptionTableViewCell.xib in Resources */,
 				214F6A8E27D6DC60000AE544 /* DetailViewController.xib in Resources */,
 				214C6D7F27D5299D00EDB959 /* ResultsTableViewCell.xib in Resources */,
+				214F6A9A27D704B0000AE544 /* DateTableViewCell.xib in Resources */,
 				21A9BF6627D50EE700237106 /* Assets.xcassets in Resources */,
 				214F6A9227D6EEF3000AE544 /* ImageTableViewCell.xib in Resources */,
 				214C6D7927D51F7900EDB959 /* FavoritesViewController.xib in Resources */,
@@ -206,6 +213,7 @@
 				21A9BF7327D50FB000237106 /* Result.swift in Sources */,
 				21A9BF7527D511C200237106 /* NetworkLayer.swift in Sources */,
 				21A9BF5F27D50EE400237106 /* SceneDelegate.swift in Sources */,
+				214F6A9927D704B0000AE544 /* DateTableViewCell.swift in Sources */,
 				214F6A8D27D6DC60000AE544 /* DetailViewController.swift in Sources */,
 				214C6D7427D51D1700EDB959 /* HomeViewController.swift in Sources */,
 				214C6D7027D5162B00EDB959 /* ResultsViewController.swift in Sources */,

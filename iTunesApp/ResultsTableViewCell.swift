@@ -45,7 +45,6 @@ class ResultsTableViewCell: UITableViewCell {
             favoriteIcon.isHidden = true
         }
         
-        
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
@@ -54,6 +53,7 @@ class ResultsTableViewCell: UITableViewCell {
     }
     
     func setUpFavoriteIcon() {
+        
         isFavorite = !isFavorite
         if isFavorite {
             favoriteIcon.image = UIImage(systemName: "heart.fill")

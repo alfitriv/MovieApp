@@ -9,6 +9,7 @@ import UIKit
 
 class HomeViewController: UITabBarController {
     let movieService = NetworkLayer.shared
+    let defaults = UserDefaults.standard
     var favoriteVC: FavoritesViewController?
     
     override func viewDidLoad() {
