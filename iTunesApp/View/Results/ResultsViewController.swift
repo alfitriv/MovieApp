@@ -22,9 +22,9 @@ class ResultsViewController: UIViewController {
     var movieList: [Result]?
     var favoritedMovies: [Result]?
     var sections: [ResultsSection]?
+    let searchController = UISearchController(searchResultsController: nil)
     weak var delegate: ResultsViewControllerDelegate?
     @IBOutlet weak var tableView: UITableView!
-    let searchController = UISearchController(searchResultsController: nil)
     private let presenter: ResultsPresenterDelegate
     
     
@@ -39,19 +39,20 @@ class ResultsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //searchController.searchResultsUpdater = self
+        
+        // MARK: - Search controller setup
         searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Music"
         navigationItem.searchController = searchController
         definesPresentationContext = true
         
+        // MARK: - Tableview registration and section setup
         tableView.register(UINib(nibName: "ResultsTableViewCell", bundle: nil), forCellReuseIdentifier: "results")
         tableView.register(UINib(nibName: "DateTableViewCell", bundle: nil), forCellReuseIdentifier: "date")
         sections = [ResultsSection.date, ResultsSection.list]
         
         self.presenter.fetchMovieResults(keyword: "Adam")
-        
     }
     
 }
@@ -91,6 +92,7 @@ extension ResultsViewController: UITableViewDelegate, UITableViewDataSource {
             cell?.favoritedMovies = favoritedMovies
             cell?.setUpCell(data: movie)
             
+            // MARK: - This is to solve the issue of favorite icons being selected even though it is not due to cells being reused.
             for item in favoritedMovies ?? [Result(artistName: nil, trackName: nil, collectionName: nil, artworkUrl60: nil, artworkUrl100: nil, trackPrice: nil, longDescription: nil, primaryGenreName: nil)] {
                 if item.uuid == movie.uuid {
                     cell?.isFavorite = true
@@ -137,6 +139,7 @@ extension ResultsViewController: UISearchBarDelegate {
         self.tableView.reloadData()
     }
     
+    /// This will replace any spaces typed in the searchbar with '%20'
     private func replaceSpace(_ inputStr: String) -> String {
             let outputStr = inputStr.replacingOccurrences(of: " ", with: "%20")
             return outputStr

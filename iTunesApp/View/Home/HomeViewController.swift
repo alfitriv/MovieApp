@@ -22,6 +22,7 @@ class HomeViewController: UITabBarController {
         
     }
     
+    /// This function sets up the VCs that we need in the tab bar along with its delegates
     func setupVCs() {
         let presenter = ResultsPresenter(service: movieService)
         presenter.delegate = self

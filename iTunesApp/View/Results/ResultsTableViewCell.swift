@@ -55,7 +55,6 @@ class ResultsTableViewCell: UITableViewCell {
     }
     
     func setUpFavoriteIcon() {
-        
         isFavorite = !isFavorite
         if isFavorite {
             favoriteIcon.image = UIImage(systemName: "heart.fill")
