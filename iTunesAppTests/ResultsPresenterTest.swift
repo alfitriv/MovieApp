@@ -19,7 +19,7 @@ class ResultsPresenterTest: XCTestCase {
     }
     
     func testFetchMovies() {
-        _ = sut.fetchMovieResults(keyword: "Test")
+        sut.fetchMovieResults(keyword: "Test")
         XCTAssertTrue(mockMovieService.isFetchMovieInvoked)
     }
     
