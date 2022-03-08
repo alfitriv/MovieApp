@@ -12,7 +12,7 @@ class FavoritesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var movieList: [Result]? = [] {
         didSet {
-            print(movieList)
+            //print(movieList)
         }
     }
     

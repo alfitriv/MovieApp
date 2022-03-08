@@ -23,7 +23,9 @@ class HomeViewController: UITabBarController {
     }
     
     func setupVCs() {
-        let resultVC = ResultsViewController(movieService: movieService)
+        let presenter = ResultsPresenter(service: movieService)
+        presenter.delegate = self
+        let resultVC = ResultsViewController(presenter: presenter)
         resultVC.delegate = self
         self.resultVC = resultVC
         
@@ -49,6 +51,11 @@ class HomeViewController: UITabBarController {
 }
 
 extension HomeViewController: ResultsViewControllerDelegate {
+    func displayResults(movies: [Result]) {
+        resultVC?.movieList = movies
+        resultVC?.tableView.reloadData()
+    }
+    
     func movieDidSetAsFavorite(movie: Result) {
         favoriteVC?.movieList?.append(movie)
         resultVC?.favoritedMovies = favoriteVC?.movieList

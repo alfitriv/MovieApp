@@ -15,10 +15,11 @@ enum ResultsSection {
 protocol ResultsViewControllerDelegate: AnyObject {
     func movieDidSetAsFavorite(movie: Result)
     func removeFromFavorite(movie: Result)
+    func displayResults(movies: [Result])
 }
 
 class ResultsViewController: UIViewController {
-    private let movieService: MovieService
+    private let presenter: ResultsPresenterDelegate
     @IBOutlet weak var tableView: UITableView!
     var movieList: [Result]?
     var favoritedMovies: [Result]?
@@ -26,8 +27,9 @@ class ResultsViewController: UIViewController {
     weak var delegate: ResultsViewControllerDelegate?
     let searchController = UISearchController(searchResultsController: nil)
     
-    init(movieService: MovieService) {
-        self.movieService = movieService
+    
+    init(presenter: ResultsPresenterDelegate) {
+        self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -47,13 +49,7 @@ class ResultsViewController: UIViewController {
         tableView.register(UINib(nibName: "DateTableViewCell", bundle: nil), forCellReuseIdentifier: "date")
         sections = [ResultsSection.date, ResultsSection.list]
         
-        self.movieService.fetchResults(searchText: "Adam") { response in
-            print(response)
-            self.movieList = response.results
-            self.tableView.reloadData()
-        } errorHandler: { error in
-            print(error)
-        }
+        self.presenter.fetchMovieResults(keyword: "Adam")
         
     }
     
@@ -125,6 +121,11 @@ extension ResultsViewController: ResultsTableViewCellDelegate {
     func movieDidSetAsFavorite(movie: Result) {
         delegate?.movieDidSetAsFavorite(movie: movie)
     }
+    
+    func displayResults(movies: [Result]) {
+        self.movieList = movies
+        self.tableView.reloadData()
+    }
 
 }
 
@@ -132,13 +133,8 @@ extension ResultsViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchKeywordStr = replaceSpace(searchController.searchBar.text!)
         if searchController.searchBar.text?.count ?? 0 > 3 {
-            self.movieService.fetchResults(searchText: searchKeywordStr) { response in
-                print(response)
-                self.movieList = response.results
-                self.tableView.reloadData()
-            } errorHandler: { error in
-                print(error)
-            }
+            self.presenter.fetchMovieResults(keyword: searchKeywordStr)
+            self.tableView.reloadData()
         }
     }
     
